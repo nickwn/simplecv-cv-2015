@@ -9,32 +9,32 @@ class CmdLineInterface:
         self.config = AppConfig()
 
         try:
-            opts, args = getopt.getopt(_argv, "d:f:", ["device=", "file="])
+            opts, args = getopt.getopt(_argv, "d:f:", ["device=", "file=", "no-networking", "headless", "debug"])
         except getopt.GetoptError:
             printUsage(_argv[0])
             sys.exit(1)
 
         for opt, arg in opts:
             if opt in ("-d", "--device"):
-                if self.config.getIsFile:
+                if config.getIsFile:
                     printUsage(_argv[0])
                     sys.exit(1)
-                self.config.deviceID = int(arg)
-                self.config.isDevice = True
+                config.deviceID = int(arg)
+                config.isDevice = True
             elif opt in ("-f", "--file"):
-                if self.config.getIsDevice:
+                if config.getIsDevice:
                     printUsage(_argv[0])
                     sys.exit(1)
-                self.config.fileName = arg
-                self.config.isFile = True
+                config.fileName = arg
+                config.isFile = True
             elif opt == "--headless":
-                self.config.isHeadless = 1 
+                config.isHeadless = 1 
             elif opt == "--no-networking":
-                self.config.isNetworking = 0
+                config.isNetworking = 0
             elif opt == "--debug":
-                self.config.isDebug = 1
+                config.isDebug = 1
 
-        if (not self.config.isDevice) and (not self.config.isFile):
+        if (not config.isDevice) and (not config.isFile):
             printUsage(_argv[0])
             sys.exit(1)
 
@@ -45,12 +45,12 @@ class CmdLineInterface:
             if(not isNetworking):
                 print "No networking mode\n";
 
-            if(self.config.isDevice):
-                print "Device mode: using /dev/video", self.config.deviceID
+            if(config.isDevice):
+                print "Device mode: using /dev/video", config.deviceID
                           
 
-            if(self.config.isFile):
-                print "File mode: using", self.config.fileName
+            if(config.isFile):
+                print "File mode: using", config.fileName
                           
 
 

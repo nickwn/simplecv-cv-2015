@@ -1,4 +1,4 @@
-from SimpleCV import *
+#from SimpleCV import *
 import sys
 from CmdLineInterface import *
 

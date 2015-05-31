@@ -1,7 +1,7 @@
 class AppConfig:
     def __init__(self):
-        isFile = False
-        isDevice = False
-        isHeadless = False
-        isNetworking = True
-        isDebug = False
+        self.isFile = False
+        self.isDevice = False
+        self.isHeadless = False
+        self.isNetworking = True
+        self.isDebug = False
