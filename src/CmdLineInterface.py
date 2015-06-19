@@ -63,6 +63,3 @@ class CmdLineInterface:
             if(self.config.isFile):
                 print "File mode: using", self.config.fileName
 
-    def getConfig(self):
-        return self.config
-

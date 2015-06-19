@@ -8,9 +8,12 @@ from NetworkController import *
 ################################################################################
 
 interface = CmdLineInterface(sys.argv)
-config = interface.getConfig()
+config = interface.config
 
 networkController = NetworkController()
+
+#if config.isDevice:
+#    camera = Camera(camera_index=config.deviceID)
 
 if config.isNetworking:
     networkController.startServer()
@@ -18,6 +21,7 @@ if config.isNetworking:
 while True:
 
     if(config.isNetworking):
+        print "isNetworking"
         networkController.waitForPing()
 
 
