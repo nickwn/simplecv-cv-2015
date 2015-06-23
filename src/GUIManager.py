@@ -7,7 +7,7 @@ class GUIManager:
     self.dis = Display(title='FRC Team 3341 Targeting')
     
   def setImage(self, image):
-    self.img = image)
+    self.img = image
     
   def setImageText(self, imageText):
     self.img.drawtext(imagetext, self.img.height/2, self.img.width/2)
