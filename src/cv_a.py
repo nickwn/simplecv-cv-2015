@@ -29,7 +29,7 @@ while gui.disIsNotDone():
         detector.largest2()
     elif len(detector.Ls) == 0:
         foundLs = False
-    '''
+    
     if foundLs:
         processor.determineL(detector.Ls)
         processor.determineAzimuth()
@@ -37,7 +37,7 @@ while gui.disIsNotDone():
         azimuth = processor.getAzimuth()
         distance = processor.getDistance()
         processor.outputData()
-    '''
+    
     gui.setImage(detector.getImage())
     gui.setFeatures(blobs=detector.blobs, ls=detector.Ls)
     gui.show()
